@@ -1,0 +1,19 @@
+# Environment Variables (DO NOT COMMIT)
+.env
+.env.local
+
+# Python Cache & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Zip Artifacts & Logs
+output.zip
+*.log
+
+# IDE & System Files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
