@@ -27,9 +27,11 @@ if ENV_FILE_PATH.exists():
 # Environment Variables
 APP_ENV = os.getenv("APP_ENV", "local")
 LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
-LLM_PROVIDER = os.getenv("LLM_PROVIDER", "offline_rules")
-LLM_MODEL_NAME = os.getenv("LLM_MODEL_NAME", "Rules-Engine-Local-Orchestrator")
-LLM_API_KEY = os.getenv("LLM_API_KEY", "")
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", "openrouter")
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", os.getenv("LLM_API_KEY", ""))
+OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", os.getenv("LLM_MODEL_NAME", "qwen/qwen3.5-9b"))
+LLM_MODEL_NAME = OPENROUTER_MODEL
+LLM_API_KEY = OPENROUTER_API_KEY
 
 # Business & Processing Constants
 CONFIDENCE_DEFAULT = 0.95
