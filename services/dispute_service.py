@@ -11,6 +11,7 @@ from core.trace import Tracer
 from core.logger import get_logger
 from agents.coordinator_agent import CoordinatorAgent
 from utils.csv_loader import OlistCSVLoader
+from services.export_service import package_output_zip
 
 logger = get_logger("DisputeService")
 
@@ -48,4 +49,8 @@ class DisputeService:
                 results.append(res)
             except Exception as e:
                 logger.error(f"Failed processing case file {file_path.name}: {str(e)}")
+
+        if results:
+            package_output_zip(self.output_dir, self.output_dir.parent / "output.zip")
+
         return results
