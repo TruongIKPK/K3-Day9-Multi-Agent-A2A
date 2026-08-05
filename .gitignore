@@ -55,6 +55,14 @@ coverage.xml
 *.cover
 *.py,cover
 .hypothesis/
+# Python Cache & Bytecode (Recursive)
+**/__pycache__/
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+*.class
 .pytest_cache/
 cover/
 
@@ -63,6 +71,10 @@ cover/
 *.pot
 
 # Django stuff:
+# Outputs & Artifacts
+output/
+/output
+output.zip
 *.log
 local_settings.py
 db.sqlite3
@@ -187,6 +199,4 @@ pyrightconfig.json
 pyvenv.cfg
 pip-selfcheck.json
 .DS_Store
-output.zip
-
-# End of https://www.toptal.com/developers/gitignore/api/python,venv,dotenv
+Thumbs.db

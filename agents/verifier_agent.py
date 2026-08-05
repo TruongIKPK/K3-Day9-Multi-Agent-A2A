@@ -21,12 +21,16 @@ class VerifierAgent(BaseAgent):
     def execute(self, inputs: Tuple[CaseInput, OrderContext, PaymentContext, PolicyDecision]) -> FinalOutput:
         case_input, order_ctx, payment_ctx, policy_decision = inputs
 
-        # Build evidence list combining domain evidence and policy evidence
-        all_evidence = []
-        all_evidence.extend(order_ctx.evidence_ids)
-        all_evidence.extend(payment_ctx.evidence_ids)
-        all_evidence.append(policy_decision.policy_evidence_id)
-        sanitized_evidence = EvidenceBuilder.sanitize_evidence_list(all_evidence, max_limit=10)
+        # Build evidence list filtered strictly by primary issue relevance
+        sanitized_evidence = EvidenceBuilder.filter_relevant_evidence(
+            order_id=order_ctx.order_id,
+            item_ids=order_ctx.item_ids,
+            seller_ids=order_ctx.seller_ids,
+            payment_ids=payment_ctx.payment_ids,
+            primary_issue=policy_decision.primary_issue,
+            cause_code=policy_decision.cause_code,
+            responsible_party_id=policy_decision.responsible_party_id
+        )
 
         # Build Responsible Parties list
         responsible_parties = []
