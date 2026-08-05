@@ -2,13 +2,19 @@
 .env
 .env.local
 
-# Python Cache & Bytecode
+# Python Cache & Bytecode (Recursive)
+**/__pycache__/
 __pycache__/
 *.py[cod]
-*$py.class
+*.pyc
+*.pyo
+*.pyd
+*.class
 .pytest_cache/
 
-# Zip Artifacts & Logs
+# Outputs & Artifacts
+output/
+/output
 output.zip
 *.log
 
@@ -17,7 +23,3 @@ output.zip
 .idea/
 .DS_Store
 Thumbs.db
-
-/output
-output
-output.zip
