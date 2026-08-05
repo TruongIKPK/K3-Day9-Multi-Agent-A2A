@@ -34,8 +34,20 @@ class BaseAgent(ABC):
                 result = self.execute(input_data)
                 latency_ms = (time.perf_counter() - start_time) * 1000
 
+                def _get_cid(data):
+                    if hasattr(data, "case_id"):
+                        return getattr(data, "case_id")
+                    if isinstance(data, (tuple, list)):
+                        for item in data:
+                            cid = _get_cid(item)
+                            if cid and cid != "UNKNOWN":
+                                return cid
+                    if hasattr(data, "order_id"):
+                        return getattr(data, "order_id")
+                    return "UNKNOWN"
+
                 self.tracer.record(
-                    case_id=getattr(input_data, "case_id", getattr(input_data, "order_id", "UNKNOWN")),
+                    case_id=_get_cid(input_data),
                     agent=self.name,
                     input_summary={"attempt": attempt},
                     output_summary={"result_type": type(result).__name__},
