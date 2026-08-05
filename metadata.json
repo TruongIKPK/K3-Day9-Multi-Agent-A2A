@@ -1,8 +1,8 @@
 {
-  "model": "Rules-Engine-Local-Orchestrator",
+  "model": "qwen/qwen3.5-9b",
   "framework": "Custom Clean Multi-Agent Architecture",
-  "runtime": "Python 3.11 / Pandas 2.2",
+  "runtime": "Python 3.11 / Pandas 2.2 / Pydantic 2.10",
   "temperature": 0.0,
   "context_window": 8192,
-  "parameter_size": "Rule-Based Deterministic System (0B LLM parameters / local execution)"
+  "parameter_size": "<= 10B Parameters (Qwen 3.5 9B & Rules Engine Engine)"
 }
