@@ -6,9 +6,9 @@
 
 | Thông tin       | Nội dung     |
 | --------------- | ------------ |
-| Họ và tên       | [Họ và tên]  |
-| MSSV            | [MSSV]       |
-| Khóa/Lớp        | [K3]         |
+| Họ và tên       | Lê Nguyễn Phi Trường  |
+| MSSV            | 2A20261541       |
+| Khóa/Lớp        | K3         |
 | Vai trò chính   | [Vai trò]    |
 | Ngày hoàn thành | [YYYY-MM-DD] |
 
