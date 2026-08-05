@@ -30,7 +30,7 @@ git clone https://github.com/TruongIKPK/K3-Day9-Multi-Agent-A2A.git
 cd K3-Day9-Multi-Agent-A2A
 
 # Install required packages
-pip install pandas pydantic pytest
+pip install -r requirements.txt
 ```
 
 ---
